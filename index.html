@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>You Make Every Moment Magical and Filled with Love | Raneem, Be My Valentine</title>
     <style>
@@ -13,7 +12,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             text-align: center;
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -23,22 +22,22 @@
             overflow: hidden;
         }
 
-        #backgroundImage {
-            width: 100%;
-            height: 100%;
-            background: url("https://storage.googleapis.com/pai-images/eae9da489d3e465eba6dc278e436579c.jpeg") center/cover no-repeat;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: opacity 1s ease-in-out;
-            opacity: 0;
-        }
+        #backgroundImage{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: opacity 1s ease-in-out;
+        opacity: 0;
+    }
 
         #alternativeBackground {
             width: 100%;
             height: 100%;
-            background: url("https://i.pinimg.com/736x/94/23/a4/9423a47e5090d3a7a584492ddbb6caeb.jpg") center/cover no-repeat;
+            background-size: cover;
             position: absolute;
             top: 0;
             left: 0;
@@ -71,7 +70,8 @@
             background-color: rgba(255, 255, 255, 0);
             border-radius: 10px;
             padding: 20px;
-            max-width: 80%;
+            width: 80%;
+            max-width: 600px;
             margin-top: 20px;
         }
 
@@ -164,12 +164,21 @@
         #floor {
             height: 50px;
         }
+
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            #poem-container {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div id="alternativeBackground"></div>
-    <div id="backgroundImage"></div>
+    <div id="alternativeBackground"
+        style="background: url('https://i.pinimg.com/736x/94/23/a4/9423a47e5090d3a7a584492ddbb6caeb.jpg') center/cover no-repeat;"></div>
+    <div id="backgroundImage"
+        style="background: url('https://storage.googleapis.com/pai-images/eae9da489d3e465eba6dc278e436579c.jpeg') center/cover no-repeat;"></div>
     <div id="muteButton" onclick="toggleMute()">🔇 Mute</div>
     <h1>You Make Every Moment Magical and Filled with Love </h1>
     <div id="poem-container">
@@ -259,16 +268,18 @@
         }
 
         // Call the function to display the affection message
-        displayAffectionMessage();
-
         function toggleBackgroundAndPlay() {
             // Toggle background image visibility
             alternativeBackground.style.opacity = 0;
             backgroundImage.style.opacity = 1;
-            // Play the audio
-            playSong();
+            // Play the audio after a short delay (adjust as needed)
+            setTimeout(function () {
+                playSong();
+            }, 500); // 500 milliseconds delay, adjust as needed
             // Hide everything except the mute button and view poem button
             hideElements();
+            // Remove the main title
+            document.querySelector('h1').style.display = 'none';
         }
 
         function hideElements() {
@@ -281,18 +292,6 @@
             muteButton.style.display = 'block';
             viewPoemButton.style.display = 'block';
         }
-        function toggleBackgroundAndPlay() {
-    // Toggle background image visibility
-    alternativeBackground.style.opacity = 0;
-    backgroundImage.style.opacity = 1;
-    // Play the audio
-    playSong();
-    // Hide everything except the mute button and view poem button
-    hideElements();
-
-    // Remove the main title
-    document.querySelector('h1').style.display = 'none';
-}
 
         function togglePoem() {
             var poemContainer = document.getElementById('poem-container');
@@ -322,7 +321,6 @@
                 muteButton.style.display = 'block';
                 viewPoemButton.textContent = 'View Poem Again';
             }
-
         }
     </script>
 </body>
