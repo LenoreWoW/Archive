@@ -72,6 +72,7 @@ function hideElements() {
     // Show the mute button and view poem button
     muteButton.style.display = 'block';
     viewPoemButton.style.display = 'block';
+    document.getElementById('generateLoveQuote').style.display = 'block';
 }
 
 function togglePoem() {
