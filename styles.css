@@ -1,6 +1,6 @@
 body {
-    font-family: 'Arial', sans-serif;
-    color: #fff;
+    font-family: 'Rottering', cursive;
+    color: #E55451; /* Original poem text color */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
     margin: 0;
@@ -15,14 +15,15 @@ body {
 }
 
 #generateLoveQuote {
+    font-family: 'Rottering', cursive;
     font-size: 1.2em;
     cursor: pointer;
-    color: #fff;
     margin-top: 20px;
-    background: none;
+    background: #FFD700; /* Gold button color */
+    color: #5C2E3D; /* Deep magenta text color */
     border: none;
     outline: none;
-    transition: color 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     position: fixed;
     bottom: 20px;
     left: 50%;
@@ -30,20 +31,11 @@ body {
 }
 
 #generateLoveQuote:hover {
-    color: #eee;
+    background: #DAA520; /* Darker gold on hover */
+    color: #FFFFFF; /* White text on hover */
 }
 
-#alternativeBackground{
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: opacity 1s ease-in-out;
-    opacity: 1;
-}
+#alternativeBackground,
 #backgroundImage {
     width: 100%;
     height: 100%;
@@ -53,13 +45,20 @@ body {
     left: 0;
     z-index: -1;
     transition: opacity 1s ease-in-out;
+}
+
+#alternativeBackground {
+    opacity: 1;
+}
+
+#backgroundImage {
     opacity: 0;
 }
 
 #muteButton {
+    font-family: 'Rottering', cursive;
     font-size: 1.2em;
     cursor: pointer;
-    color: #ff4d4d;
     background: none;
     border: none;
     outline: none;
@@ -70,13 +69,13 @@ body {
 }
 
 #muteButton:hover {
-    color: #ff9999;
+    color: #FFD700; /* Gold on hover */
 }
 
 #viewPoemButton {
+    font-family: 'Rottering', cursive;
     font-size: 1.2em;
     cursor: pointer;
-    color: #fff;
     margin-top: 20px;
     background: none;
     border: none;
@@ -89,7 +88,17 @@ body {
 }
 
 #viewPoemButton:hover {
-    color: #eee;
+    color: #FFD700; /* Gold on hover */
 }
 
-/* Other styles remain unchanged */
+#poem {
+    color: #E55451; /* Original poem text color */
+}
+
+#loveQuote {
+    color: #7D3C98; /* Romantic purple for generated text */
+}
+
+#affectionMessage {
+    color: #4A90E2; /* Soft blue for affection message */
+}
