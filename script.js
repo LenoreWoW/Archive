@@ -61,7 +61,12 @@ function toggleBackgroundAndPlay() {
     hideElements();
     // Remove the main title
     document.querySelector('h1').style.display = 'none';
+
+    // Hide the "Click me" button after the heart has been clicked
+    var clickMeButton = document.getElementById("generateLoveQuote");
+    clickMeButton.style.display = "none";
 }
+
 
 function hideElements() {
     var elementsToHide = document.querySelectorAll('#poem-container, #invite, #loveQuote, #generateLoveQuote, #affectionMessage');
